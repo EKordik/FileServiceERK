@@ -33,6 +33,8 @@ public class StartUp {
                    
        }catch(IOException ioe){
            System.out.println(ioe.getMessage());
+       }catch(IllegalArgumentException iae){
+           System.out.println(iae.getMessage());
        }
        
        //Writing to a file

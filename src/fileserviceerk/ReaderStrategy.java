@@ -26,7 +26,7 @@ public interface ReaderStrategy {
      * LinkedHashMap represents one record.
      * @param path - Path of the file being written to
      * @return - Returns a List of Maps each map represents a record in the file. 
-     * @throws IOException 
+     * @throws IOException - Throws an IOException
      */
     public abstract List<LinkedHashMap<String, String>> readAll(String path) throws IOException;
     

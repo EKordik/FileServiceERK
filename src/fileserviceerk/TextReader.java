@@ -13,19 +13,66 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- *
- * @author emmakordik
+ * Reads data in from text files. Uses a formatStrategy to format the data 
+ * properly and then returns the data to the calling class.
+ * 
+ * @author Emma Kordik
+ * @version 1.00
  */
 public class TextReader implements ReaderStrategy {
     private FormatStrategy formatter;
     private final String BR = "\n";
     
-    public TextReader(FormatStrategy formatter){
+    /**
+     * Constructor that sets the FormatStrategy when an instance of the class is
+     * created.
+     * 
+     * @param formatter - Accepts a FromatStrategy based off of the FormatStrategy
+     * interface.
+     * @throws IllegalArgumentException - If no formatter object is found throws
+     * an exception back to the calling method.
+     */
+    public TextReader(FormatStrategy formatter)throws IllegalArgumentException{
+        setFormatter(formatter);
+    }
+
+    /**
+     * Sets a format object based on the FormatStrategy interface. This method
+     * can be used if you need to change the formatter after an instance of the 
+     * text reader has been created.
+     * 
+     * @param formatter - Accepts a Format object based off the FormatStrategy
+     * interface.
+     * @throws IllegalArgumentException - Throws an IllegalArgumentException if 
+     * no format object is passed in.
+     */
+    public void setFormatter(FormatStrategy formatter)throws IllegalArgumentException {
+        if(formatter == null){
+            throw new IllegalArgumentException();
+        }
         this.formatter = formatter;
     }
     
+    
+    /**
+     * Reads all the data in a file and returns it as a List of LinkedHashMaps
+     * with String keys and values. LinkedHashMaps are used to preserve the order
+     * of the information coming from the file.
+     * 
+     * @param path - Accepts the path of the file that is to be read.
+     * @return - Returns a List of LinkedHashMaps with String keys and values. 
+     * LinkedHashMaps are used to preserve the order of the data from the file.
+     * @throws IOException - Throws an IOException if an exception is generated
+     * when the file is read.
+     * @throws IllegalArgumentException - if the file path is null or the length is 
+     * zero throws an IllegalArgumentException because the file needs a path
+     * to be able to read them in.
+     */
     @Override
-    public List<LinkedHashMap<String,String>> readAll(String path) throws IOException{
+    public List<LinkedHashMap<String,String>> readAll(String path) throws IOException, IllegalArgumentException{
+        if(path == null || path.length() == 0){
+            throw new IllegalArgumentException();
+        }
         File file = new File(path);
         String data = "";
         
