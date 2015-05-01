@@ -178,64 +178,64 @@ public class InvoiceFormatter implements FormatStrategy {
     /**
      * For testing
      */
-    public static void main(String[] args) {
-        LinkedHashMap<String,String> test = new LinkedHashMap<>();
-        LinkedHashMap<String,String> address = new LinkedHashMap<>();
-        LinkedHashMap<String,String> activity = new LinkedHashMap<>();
-        LinkedHashMap<String,String> activity2 = new LinkedHashMap<>();
-        LinkedHashMap<String,String> expense = new LinkedHashMap<>();
-        LinkedHashMap<String,String>totals = new LinkedHashMap<>();
-
-        List<LinkedHashMap<String,String>> test2 = new ArrayList();
-       LinkedHashMap<String,String> footer = new LinkedHashMap<>();
-        
-        test.put("Invoice No:", "1008");
-        test.put("Invoice Date:", "1/15/2015");
-        test.put("Invoice Period:", "February");
-        
-        address.put("Company:", "Big Buiding Blocks");
-        address.put("Contact:", "John Smith");
-        address.put("Street:", "1999 This Way Dr.");
-        address.put("CityStateZip:", "Somewhere, OK 57575");
-      
-        activity.put("Activity", "Meetings & Conference Calls");
-        activity.put("Hours", "5.00");
-        activity.put("SubTotal", "250.00");
-        activity.put("Discount", "0.00");
-        activity.put("Total", "250.00");
-        
-        activity2.put("Activity", "Programming & Design");
-        activity2.put("Hours", "10.00");
-        activity2.put("SubTotal", "1000.00");
-        activity2.put("Discount", "0.00");
-        activity2.put("Total", "1000.00");
-        
-        expense.put("Expenses", "Postage");
-        expense.put("Cost", "0.45");
-        expense.put("Qty", "2");
-        expense.put("Tax", "0.05");
-        expense.put("Subtotal", "0.95");
-        expense.put("Markup", "0.15");
-        expense.put("Total", "1.10");
-        
-        totals.put("Subtotal", "15.00");
-        totals.put("Tax", "54");
-        totals.put("Discount", "000");
-        totals.put("Total", "54.00");
-        
-        footer.put("footer", "Pay Earlier for a discount");
-        
-        test2.add(test);
-        test2.add(address);
-        test2.add(activity);
-        test2.add(activity2);
-        test2.add(expense);
-        test2.add(totals);
-        test2.add(footer);
-        
-        FormatStrategy invoice = new InvoiceFormatter();
-        
-        System.out.println(invoice.encodeAll(test2));
-    }
+//    public static void main(String[] args) {
+//        LinkedHashMap<String,String> test = new LinkedHashMap<>();
+//        LinkedHashMap<String,String> address = new LinkedHashMap<>();
+//        LinkedHashMap<String,String> activity = new LinkedHashMap<>();
+//        LinkedHashMap<String,String> activity2 = new LinkedHashMap<>();
+//        LinkedHashMap<String,String> expense = new LinkedHashMap<>();
+//        LinkedHashMap<String,String>totals = new LinkedHashMap<>();
+//
+//        List<LinkedHashMap<String,String>> test2 = new ArrayList();
+//       LinkedHashMap<String,String> footer = new LinkedHashMap<>();
+//        
+//        test.put("Invoice No:", "1008");
+//        test.put("Invoice Date:", "1/15/2015");
+//        test.put("Invoice Period:", "February");
+//        
+//        address.put("Company:", "Big Buiding Blocks");
+//        address.put("Contact:", "John Smith");
+//        address.put("Street:", "1999 This Way Dr.");
+//        address.put("CityStateZip:", "Somewhere, OK 57575");
+//      
+//        activity.put("Activity", "Meetings & Conference Calls");
+//        activity.put("Hours", "5.00");
+//        activity.put("SubTotal", "250.00");
+//        activity.put("Discount", "0.00");
+//        activity.put("Total", "250.00");
+//        
+//        activity2.put("Activity", "Programming & Design");
+//        activity2.put("Hours", "10.00");
+//        activity2.put("SubTotal", "1000.00");
+//        activity2.put("Discount", "0.00");
+//        activity2.put("Total", "1000.00");
+//        
+//        expense.put("Expenses", "Postage");
+//        expense.put("Cost", "0.45");
+//        expense.put("Qty", "2");
+//        expense.put("Tax", "0.05");
+//        expense.put("Subtotal", "0.95");
+//        expense.put("Markup", "0.15");
+//        expense.put("Total", "1.10");
+//        
+//        totals.put("Subtotal", "15.00");
+//        totals.put("Tax", "54");
+//        totals.put("Discount", "000");
+//        totals.put("Total", "54.00");
+//        
+//        footer.put("footer", "Pay Earlier for a discount");
+//        
+//        test2.add(test);
+//        test2.add(address);
+//        test2.add(activity);
+//        test2.add(activity2);
+//        test2.add(expense);
+//        test2.add(totals);
+//        test2.add(footer);
+//        
+//        FormatStrategy invoice = new InvoiceFormatter();
+//        
+//        System.out.println(invoice.encodeAll(test2));
+//    }
 }
 

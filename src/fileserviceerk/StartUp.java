@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -21,7 +23,11 @@ public class StartUp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       FileService file = new FileService(new TextReader(new CsvFormatter(",")), new TextWriter(new CsvFormatter(",")));
+        
+         final AbstractApplicationContext ctx = new ClassPathXmlApplicationContext(
+			       new String[] {"applicationContext.xml"});
+        
+       FileService file = (FileService)ctx.getBean("fileService");
        List<LinkedHashMap<String,String>> data = new ArrayList<>();
        
        try{

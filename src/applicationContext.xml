@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+">
+    <bean id="reader" class="fileserviceerk.TextReader">
+        <constructor-arg name="formatter" ref="formatter" />
+    </bean>
+    
+    <bean id="writer" class="fileserviceerk.TextWriter">
+         <constructor-arg name="formatter" ref="formatter" />
+    </bean>
+    
+    <bean id="formatter" class="fileserviceerk.CsvFormatter">
+        <constructor-arg name="deliminator" value="," />
+    </bean>
+    
+    <bean id="fileService" class="fileserviceerk.FileService">
+        <constructor-arg name="reader" ref="reader" />
+        <constructor-arg name="writer" ref="writer" />
+    </bean>
+</beans>

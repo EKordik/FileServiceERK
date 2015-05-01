@@ -22,7 +22,7 @@ import java.util.Map;
  * @version 1.00
  */
 public class TextWriter implements WriterStrategy {
-    private FormatStrategy format;
+    private FormatStrategy formatter;
     private String data;
     
     
@@ -33,8 +33,8 @@ public class TextWriter implements WriterStrategy {
      * @throws IllegalArgumentException - If the FormatStrategy is null an 
      * exception is thrown to the calling method.
      */
-    public TextWriter(FormatStrategy format)throws IllegalArgumentException{
-        setFormat(format);
+    public TextWriter(FormatStrategy formatter)throws IllegalArgumentException{
+        this.formatter = formatter;
     }
 
     /**
@@ -50,7 +50,7 @@ public class TextWriter implements WriterStrategy {
         if(format == null){
             throw new IllegalArgumentException();
         }
-        this.format = format;
+        this.formatter = format;
     }
     
     
@@ -73,7 +73,7 @@ public class TextWriter implements WriterStrategy {
         } 
 
            
-        data = format.encodeAll(files);
+        data = formatter.encodeAll(files);
         boolean append = false;
         
         File file = new File(path);
@@ -111,7 +111,7 @@ public class TextWriter implements WriterStrategy {
             throw new IllegalArgumentException();
         }
         boolean append = true;
-        data = format.encodeRecord(record);
+        data = formatter.encodeRecord(record);
         
         File file = new File(path);
         PrintWriter output = null; 

@@ -33,8 +33,8 @@ public class FileService {
      * is passed in throws an IllegalArgumentException back to the calling class.
      */
     public FileService(ReaderStrategy reader, WriterStrategy writer) throws IllegalArgumentException{
-        setReader(reader);
-        setWriter(writer);
+        this.reader = reader;
+        this.writer = writer;
         
     }
     
